@@ -4046,11 +4046,11 @@ a.button.compare:hover {
 
 @media(max-width: 600px) {
 
-    .woocommerce #content table.cart .product-thumbnail, 
-    .woocommerce table.cart .product-thumbnail, 
-    .woocommerce table.my_account_orders tr td.order-actions:before, 
-    .woocommerce-page #content table.cart .product-thumbnail, 
-    .woocommerce-page table.cart .product-thumbnail, 
+    .woocommerce #content table.cart .product-thumbnail,
+    .woocommerce table.cart .product-thumbnail,
+    .woocommerce table.my_account_orders tr td.order-actions:before,
+    .woocommerce-page #content table.cart .product-thumbnail,
+    .woocommerce-page table.cart .product-thumbnail,
     .woocommerce-page table.my_account_orders tr td.order-actions:before {
         display: none;
     }
@@ -4060,9 +4060,9 @@ a.button.compare:hover {
         float: left;
     }
     .woocommerce table.shop_table td .amount,
-    .woocommerce table.shop_table td, 
-    .woocommerce table.shop_table td span, 
-    .woocommerce table.shop_table td a, 
+    .woocommerce table.shop_table td,
+    .woocommerce table.shop_table td span,
+    .woocommerce table.shop_table td a,
     .woocommerce table.shop_table td strong {
         font-size: 10px;
         line-height: 11px;
@@ -4071,8 +4071,8 @@ a.button.compare:hover {
         padding: 5px 5px;
         font-size: 10px;
     }
-    .shop_table.cart, 
-    .shop_table.cart td, 
+    .shop_table.cart,
+    .shop_table.cart td,
     .shop_table.cart th {
         padding: 5px;
     }
@@ -4103,10 +4103,11 @@ a.button.compare:hover {
     .cart-collaterals .cart_totals, .cart-collaterals .shipping_calculator {
         width: 100%;
     }
-	
-	.cross-sells ul.products li.product {
-		
-	}
+
+    .cross-sells ul.products li.product {
+
+    }
+}
 
 @media(max-width: 480px) {
     #shop-isle-checkout-coupon .checkout_coupon .form-row-first {
