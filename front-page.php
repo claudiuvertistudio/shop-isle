@@ -292,17 +292,17 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 													if( !empty($format_string) ) {
 														switch ( $format_string ) {
 															case '%1$s%2$s' :
-																echo get_woocommerce_currency_symbol().$product->price;
-															break;
+																echo '<span class="shop-item-price"><span class="shop-item-currency">'.get_woocommerce_currency_symbol().'</span>'.$product->price.'</span>';
+																break;
 															case '%2$s%1$s' :
-																echo $product->price.get_woocommerce_currency_symbol();
-															break;
+																echo '<span class="shop-item-price">'.$product->price.'<span class="shop-item-currency">'.get_woocommerce_currency_symbol().'</span></span>';
+																break;
 															case '%1$s&nbsp;%2$s' :
-																echo get_woocommerce_currency_symbol().' '.$product->price;
-															break;
+																echo '<span class="shop-item-price"><span class="shop-item-currency">'.get_woocommerce_currency_symbol().'</span> '.$product->price.'</span>';
+																break;
 															case '%2$s&nbsp;%1$s' :
-																echo $product->price.' '.get_woocommerce_currency_symbol();
-															break;
+																echo '<span class="shop-item-price">'.$product->price.' <span class="shop-item-currency">'.get_woocommerce_currency_symbol().'</span></span>';
+																break;
 														}
 													} else {
 														echo get_woocommerce_currency_symbol().$product->price;
@@ -397,17 +397,17 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 													if( !empty($format_string) ) {
 														switch ( $format_string ) {
 															case '%1$s%2$s' :
-																echo get_woocommerce_currency_symbol().$product->price;
-															break;
+																echo '<span class="shop-item-price"><span class="shop-item-currency">'.get_woocommerce_currency_symbol().'</span>'.$product->price.'</span>';
+																break;
 															case '%2$s%1$s' :
-																echo $product->price.get_woocommerce_currency_symbol();
-															break;
+																echo '<span class="shop-item-price">'.$product->price.'<span class="shop-item-currency">'.get_woocommerce_currency_symbol().'</span></span>';
+																break;
 															case '%1$s&nbsp;%2$s' :
-																echo get_woocommerce_currency_symbol().' '.$product->price;
-															break;
+																echo '<span class="shop-item-price"><span class="shop-item-currency">'.get_woocommerce_currency_symbol().'</span> '.$product->price.'</span>';
+																break;
 															case '%2$s&nbsp;%1$s' :
-																echo $product->price.' '.get_woocommerce_currency_symbol();
-															break;
+																echo '<span class="shop-item-price">'.$product->price.' <span class="shop-item-currency">'.get_woocommerce_currency_symbol().'</span></span>';
+																break;
 														}
 													} else {
 														echo get_woocommerce_currency_symbol().$product->price;
@@ -569,17 +569,17 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 													if( !empty($format_string) ) {
 														switch ( $format_string ) {
 															case '%1$s%2$s' :
-																echo get_woocommerce_currency_symbol().$product->price;
-															break;
+																echo '<span class="shop-item-price"><span class="shop-item-currency">'.get_woocommerce_currency_symbol().'</span>'.$product->price.'</span>';
+																break;
 															case '%2$s%1$s' :
-																echo $product->price.get_woocommerce_currency_symbol();
-															break;
+																echo '<span class="shop-item-price">'.$product->price.'<span class="shop-item-currency">'.get_woocommerce_currency_symbol().'</span></span>';
+																break;
 															case '%1$s&nbsp;%2$s' :
-																echo get_woocommerce_currency_symbol().' '.$product->price;
-															break;
+																echo '<span class="shop-item-price"><span class="shop-item-currency">'.get_woocommerce_currency_symbol().'</span> '.$product->price.'</span>';
+																break;
 															case '%2$s&nbsp;%1$s' :
-																echo $product->price.' '.get_woocommerce_currency_symbol();
-															break;
+																echo '<span class="shop-item-price">'.$product->price.' <span class="shop-item-currency">'.get_woocommerce_currency_symbol().'</span></span>';
+																break;
 														}
 													} else {
 														echo get_woocommerce_currency_symbol().$product->price;
@@ -637,17 +637,17 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 													if( !empty($format_string) ) {
 														switch ( $format_string ) {
 															case '%1$s%2$s' :
-																echo get_woocommerce_currency_symbol().$product->price;
-															break;
+																echo '<span class="shop-item-price"><span class="shop-item-currency">'.get_woocommerce_currency_symbol().'</span>'.$product->price.'</span>';
+																break;
 															case '%2$s%1$s' :
-																echo $product->price.get_woocommerce_currency_symbol();
-															break;
+																echo '<span class="shop-item-price">'.$product->price.'<span class="shop-item-currency">'.get_woocommerce_currency_symbol().'</span></span>';
+																break;
 															case '%1$s&nbsp;%2$s' :
-																echo get_woocommerce_currency_symbol().' '.$product->price;
-															break;
+																echo '<span class="shop-item-price"><span class="shop-item-currency">'.get_woocommerce_currency_symbol().'</span> '.$product->price.'</span>';
+																break;
 															case '%2$s&nbsp;%1$s' :
-																echo $product->price.' '.get_woocommerce_currency_symbol();
-															break;
+																echo '<span class="shop-item-price">'.$product->price.' <span class="shop-item-currency">'.get_woocommerce_currency_symbol().'</span></span>';
+																break;
 														}
 													} else {
 														echo get_woocommerce_currency_symbol().$product->price;
