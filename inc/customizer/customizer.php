@@ -242,7 +242,6 @@ function shop_isle_customize_register( $wp_customize ) {
 
 	/* Category */
 	$wp_customize->add_setting( 'shop_isle_products_category', array(
-		'transport' => 'postMessage',
 		'sanitize_callback' => 'shop_isle_sanitize_text'
 	));
 	$wp_customize->add_control( 'shop_isle_products_category', array(
