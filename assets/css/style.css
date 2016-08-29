@@ -3380,6 +3380,9 @@ Pirate Forms
 .pirate_forms_wrap .form_field_wrap textarea {
 	min-height: 100px;
 }
+.pirate_forms_wrap .form_field_wrap label {
+	float: left;
+}
 
 /* -------------------------------------------------------------------
 Widgets

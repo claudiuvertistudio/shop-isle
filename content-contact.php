@@ -4,24 +4,23 @@
 				<div class="row">
 				
 					<?php
-					
-					$shop_isle_contact_page_form_shortcode = get_theme_mod('shop_isle_contact_page_form_shortcode');
-					
-					if(!empty($shop_isle_contact_page_form_shortcode)):
 
-						echo '<div class="col-sm-6 contact-page-form">';
+						$shop_isle_contact_page_form_shortcode = get_theme_mod('shop_isle_contact_page_form_shortcode');
 
+						$is_content = $post->post_content !== "" ? true : false;
+						$is_shotcode = !empty($shop_isle_contact_page_form_shortcode) ? true : false;
+
+						if( $is_shotcode ){
+							echo '<div class="col-xs-12  ' . ( $is_content ? 'col-sm-6' : 'col-sm-12' ) . ' contact-page-form">';
 							echo do_shortcode($shop_isle_contact_page_form_shortcode);
-							
-						echo '</div>';
-						
-					endif;	
+							echo '</div>';
+						}
 
-					echo '<div class="col-sm-6">';
-
-						the_content();
-
-					echo '</div>';
+						if( $is_content ) {
+							echo '<div class="col-xs-12 ' . ( $is_shotcode ? 'col-sm-6' : 'col-sm-12' ) .'">';
+							the_content();
+							echo '</div>';
+						}
 					
 					?>
 
