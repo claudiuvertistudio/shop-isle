@@ -543,3 +543,18 @@ function shop_isle_woocommerce_taxonomy_archive_description() {
     }
 }
 add_action( 'woocommerce_archive_description', 'shop_isle_woocommerce_taxonomy_archive_description');
+
+
+
+/* Display WooCommerce shop content on all shop pages */
+function shop_isle_woocommerce_product_archive_description() {
+	if ( is_post_type_archive( 'product' ) ) {
+		$shop_page   = get_post( wc_get_page_id( 'shop' ) );
+		if ( $shop_page ) {
+			$description = wc_format_content( $shop_page->post_content );
+			if ( $description ) {
+				echo '<div class="page-description">' . $description . '</div>';
+			}
+		}
+	}
+}
