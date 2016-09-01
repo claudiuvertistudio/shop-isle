@@ -1,4 +1,17 @@
 
+### 2.1.14 - 01/09/2016
+**Changes:** 
+- Fixed issue with slider not beeing customizable in Safari
+- Added compatibility with WooCommerce Products Per Page plugin
+- Mega Menu compatibility
+- Fixed recommended header size
+- Added CSS style for the My Account page in WooCommerce
+- Added specific class to the prices of product slider, to allow the price to be removed
+- Changed screenshot
+- Added .po and .mo files for chinese language
+- Fixed issue with fields on mobile devices
+- Fixed issue with Zip code not selectable on checkout page
+
 ### 2.1.13 - 28/07/2016
 **Changes:** 
 - Fixed issue with copyright and powered by link
