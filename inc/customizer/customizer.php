@@ -153,6 +153,17 @@ function shop_isle_customize_register( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_setting( 'shop_isle_banners_title', array(
+		'transport' => 'postMessage',
+		'sanitize_callback' => 'shop_isle_sanitize_text'
+	));
+	
+	$wp_customize->add_control( 'shop_isle_banners_title', array(
+		'label' => __( 'Section title', 'shop-isle' ),
+		'section' => 'shop_isle_banners_section',
+		'priority' => 2,
+	));
+
 	/* Banner */
 	$wp_customize->add_setting( 'shop_isle_banners', array(
 		'transport' => 'postMessage',
