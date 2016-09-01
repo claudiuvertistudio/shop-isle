@@ -251,7 +251,7 @@ get_header(); ?>
 										echo '<a href="'.esc_url( $shop_isle_about_page_video_link ).'" class="video-pop-up"><span class="social_youtube_square"></span></a>';
 									echo '</div>';
 								endif;
-								if( empty($shop_isle_about_page_video_link) && isset( $wp_customize ) ):
+								if( empty($shop_isle_about_page_video_link) && is_customize_preview() ):
 									echo '<div class="video-box-icon shop_isle_hidden_if_not_customizer">';
 										echo '<a href="'.esc_url( $shop_isle_about_page_video_link ).'" class="video-pop-up"><span class="social_youtube_square"></span></a>';
 									echo '</div>';

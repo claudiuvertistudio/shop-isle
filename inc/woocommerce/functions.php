@@ -336,20 +336,17 @@ function shop_isle_update_custom_meta($postID, $newvalue, $field_name) {
  */
 function shop_isle_products_slider_on_single_page() {
 
-	global $wp_customize;
-	
-
 	$shop_isle_products_slider_single_hide = get_theme_mod('shop_isle_products_slider_single_hide');
 
 	if( isset($shop_isle_products_slider_single_hide) && $shop_isle_products_slider_single_hide != 1 ):
 		echo '<hr class="divider-w">';
 		echo '<section class="module module-small-bottom aya">';
-	elseif ( isset( $wp_customize ) ):
+	elseif ( is_customize_preview() ):
 		echo '<hr class="divider-w">';
 		echo '<section class="module module-small-bottom shop_isle_hidden_if_not_customizer">';
 	endif;
 
-	if( ( isset($shop_isle_products_slider_single_hide) && $shop_isle_products_slider_single_hide != 1 ) || isset( $wp_customize ) ):
+	if( ( isset($shop_isle_products_slider_single_hide) && $shop_isle_products_slider_single_hide != 1 ) || is_customize_preview() ):
 
 			echo '<div class="container">';
 
@@ -534,4 +531,33 @@ if ( !function_exists( 'shop_isle_search_products_no_results_wrapper_end' ) ) {
 			echo '</section><!-- .module-small -->';
 		}
 	}
-}	
+}
+
+/* Display WooCommerce product category description on all category archive pages */
+if ( !function_exists( 'shop_isle_woocommerce_taxonomy_archive_description' ) ) {
+	function shop_isle_woocommerce_taxonomy_archive_description() {
+	    if ( is_tax( array( 'product_cat', 'product_tag' ) ) && get_query_var( 'paged' ) != 0 ) {
+	        $description = wc_format_content( term_description() );
+	        if ( $description ) {
+	            echo '<div class="term-description">' . $description . '</div>';
+	        }
+	    }
+	}
+}
+add_action( 'woocommerce_archive_description', 'shop_isle_woocommerce_taxonomy_archive_description');
+
+
+/* Display WooCommerce shop content on all shop pages */
+if ( !function_exists( 'shop_isle_woocommerce_product_archive_description' ) ) {
+	function shop_isle_woocommerce_product_archive_description() {
+		if ( is_post_type_archive( 'product' ) ) {
+			$shop_page   = get_post( wc_get_page_id( 'shop' ) );
+			if ( $shop_page ) {
+				$description = wc_format_content( $shop_page->post_content );
+				if ( $description ) {
+					echo '<div class="page-description">' . $description . '</div>';
+				}
+			}
+		}
+	}
+}

@@ -8,7 +8,7 @@
 <html <?php language_attributes(); ?> <?php shop_isle_html_tag_schema(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
@@ -22,10 +22,8 @@
 	<!-- Preloader -->
 	<?php
 	
-	global $wp_customize;
-	
 	/* Preloader */
-	if(is_front_page() && !isset( $wp_customize ) && get_option( 'show_on_front' ) != 'page' ): 	
+	if(is_front_page() && !is_customize_preview() && get_option( 'show_on_front' ) != 'page' ): 	
 	
 		$shop_isle_disable_preloader = get_theme_mod('shop_isle_disable_preloader');
 		
