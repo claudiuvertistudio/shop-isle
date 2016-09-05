@@ -98,7 +98,22 @@
 			}
 		} );
 	} );
-	
+
+	wp.customize( 'shop_isle_banners_title', function( value ) {
+		value.bind( function( to ) {
+            if( to !== '' ) {
+                if ($('.product-banners-title').hasClass('shop_isle_hidden_if_not_customizer')) {
+                    $('.product-banners-title').removeClass('shop_isle_hidden_if_not_customizer');
+                }
+                $('.product-banners-title').text(to);
+            } else {
+                if ( !$('.product-banners-title').hasClass('shop_isle_hidden_if_not_customizer')) {
+                    $('.product-banners-title').addClass('shop_isle_hidden_if_not_customizer');
+                }
+            }
+		} );
+	} );
+
 	// Add new banner (Repeater)
 	wp.customize( "shop_isle_banners", function( value ) {
 		value.bind( function( to ) {
