@@ -2114,6 +2114,22 @@ Home Section
 }
 
 /* Video */
+.module-video {
+    overflow: hidden;
+}
+
+.module-video-thumbnail {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.module-video-thumbnail img {
+    width: 100%;
+    height: auto;
+}
+
 .video-controls-box {
 	position: absolute !important;
 	bottom: 40px;
