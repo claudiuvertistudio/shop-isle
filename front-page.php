@@ -508,9 +508,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 
 	if( ( isset($shop_isle_video_hide) && $shop_isle_video_hide != 1 && !empty($shop_isle_yt_link) ) || ( !empty($shop_isle_yt_link) && is_customize_preview() )  ) {
 
-		echo '<div class="module-video-thumbnail">';
-		echo '<img src="'. $shop_isle_yt_thumbnail . '">';
-		echo '</div>';
+		echo '<div class="module-video-thumbnail"'. ( !empty( $shop_isle_yt_thumbnail ) ? ' style="background-image: url('.$shop_isle_yt_thumbnail.')' : '' ) .'"></div>';
 
 		echo '<div>';
 		$shop_isle_video_title = get_theme_mod('shop_isle_video_title');
