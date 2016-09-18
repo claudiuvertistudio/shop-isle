@@ -5017,3 +5017,12 @@ WR MegaMenu
         width: 15px !important;
     }
 }
+
+/* -------------------------------------------------------------------
+WP Show Posts
+------------------------------------------------------------------- */
+#customer_details .col-1,
+#customer_details .col-2 {
+	width: 100%;
+	clear: left;
+}
