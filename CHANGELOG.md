@@ -1,4 +1,15 @@
 
+### 2.1.15 - 19/09/2016
+**Changes:** 
+- NEW option for title in the Banners section
+- Add a notice in Products section and Products slider section that WooCommerce is required
+- Improved submit buttons layout in sidebar
+- NEW option for placeholder image for the video section
+- Fixed issue with missing tax on total price on frontpage products
+- Fixed issue with hidden products that appeared on frontpage
+- Fix error in 404 page
+- Recommend Pirate Forms plugin instead of Contact Form 7 in the Contact page in Customize
+
 ### 2.1.14 - 01/09/2016
 **Changes:** 
 - Fixed issue with slider not beeing customizable in Safari
