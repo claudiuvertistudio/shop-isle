@@ -116,3 +116,7 @@ button.shop_isle_general_control_remove_field:hover{
 #accordion-section-shop_isle_colors_section_pro .accordion-section-title:after, #accordion-section-shop_isle_sections_order_pro .accordion-section-title:after, #accordion-shop_isle_new_features_pro .accordion-section-title:after {
 	content: "\f160";
 }
+.shop-isle-require-woo {
+	background-color: #f0ad4e;
+	padding: 10px;
+}
