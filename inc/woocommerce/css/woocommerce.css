@@ -2843,6 +2843,7 @@ Single product page
 .shop-with-sidebar {
     float: right;
     padding: 0;
+    clear: right;
 }
 
 /****
