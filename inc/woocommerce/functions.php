@@ -42,13 +42,19 @@ if ( ! function_exists( 'shop_isle_shop_page_wrapper' ) ) {
 	function shop_isle_shop_page_wrapper() {
 		?>
 		<section class="module-small module-small-shop">
-			<div class="container">
+				<div class="container">
 
-			<?php if( is_shop() || is_product_tag() || is_product_category() ):
+				<?php if( is_shop() || is_product_tag() || is_product_category() ):
 
-				do_action( 'shop_isle_before_shop' );
+						do_action( 'shop_isle_before_shop' );
 
-			endif; ?>
+						if( is_active_sidebar( 'shop-isle-sidebar-shop-archive' ) ) : ?>
+
+							<div class="col-sm-9 shop-with-sidebar" id="shop-isle-blog-container">
+
+						<?php endif; ?>
+
+				<?php endif; ?>
 
 		<?php	
 	}
@@ -89,45 +95,23 @@ if ( ! function_exists( 'shop_isle_shop_page_wrapper_end' ) ) {
 	function shop_isle_shop_page_wrapper_end() {
 		?>
 
+			<?php if( (is_shop() || is_product_category() || is_product_tag() ) && is_active_sidebar( 'shop-isle-sidebar-shop-archive' ) ): ?>
+
+				</div>
+
+				<!-- Sidebar column start -->
+				<div class="col-sm-3 col-md-3 sidebar sidebar-shop">
+					<?php do_action( 'shop_isle_sidebar_shop_archive' ); ?>
+				</div>
+				<!-- Sidebar column end -->
+
+			<?php endif; ?>
+
 			</div><!-- .container -->
 		</section><!-- .module-small -->
 		<?php	
 	}
 }	
-
-/**
- * Before Shop loop when there is active sidebar
- * @since   1.0.0
- * @return  void
- */
-if ( ! function_exists( 'shop_isle_shop_page_sidebar' ) ) {
-	function shop_isle_shop_page_sidebar() {
-		if( ( is_shop() || is_product_tag() || is_product_category() ) && is_active_sidebar( 'shop-isle-sidebar-shop-archive' ) ): ?>
-			<div class="col-sm-9 shop-with-sidebar" id="shop-isle-blog-container">
-		<?php endif;
-	}
-}
-/**
- * After Shop loop when there is active sidebar
- * @since   1.0.0
- * @return  void
- */
-if ( ! function_exists( 'shop_isle_shop_page_sidebar_end' ) ) {
-	function shop_isle_shop_page_sidebar_end() {
-		if( (is_shop() || is_product_category() || is_product_tag() ) && is_active_sidebar( 'shop-isle-sidebar-shop-archive' ) ): ?>
-
-			</div>
-
-			<!-- Sidebar column start -->
-			<div class="col-sm-3 col-md-3 sidebar sidebar-shop">
-				<?php do_action( 'shop_isle_sidebar_shop_archive' ); ?>
-			</div>
-			<!-- Sidebar column end -->
-
-		<?php endif;
-	}
-}
-
 
 /**
  * Default loop columns on product archives
