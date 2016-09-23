@@ -3410,8 +3410,9 @@ Post
 /*
 Pirate Forms
 */
-.pirate_forms_wrap .form_field_wrap {
-	padding-left: 0px;
+.widget .pirate_forms_wrap .form_field_wrap {
+	padding-left: 0;
+	padding-right: 0;
 }
 .pirate_forms_wrap .form_field_wrap textarea {
 	min-height: 100px;
@@ -3552,6 +3553,10 @@ Widgets
 
 .widget input[type=submit]:hover {
 	opacity: 0.8;
+}
+
+.shop_isle_footer_sidebar .widget input[type=submit] {
+	background: rgba(255, 255, 255, 0.2);
 }
 
 .widget.widget_search form input[type=submit] {
@@ -5016,4 +5021,13 @@ WR MegaMenu
     .wr-mega-menu .wr-menu-down {
         width: 15px !important;
     }
+}
+
+/* -------------------------------------------------------------------
+WP Show Posts
+------------------------------------------------------------------- */
+#customer_details .col-1,
+#customer_details .col-2 {
+	width: 100%;
+	clear: left;
 }
