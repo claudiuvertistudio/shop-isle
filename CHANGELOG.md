@@ -1,4 +1,11 @@
 
+### 2.1.16 - 25/09/2016
+**Changes:** 
+- Fixed fatal error in lower version of PHP
+- Fixed conflict with WP Show Posts plugin
+- Fixed layout issue when the Shop page is set up as frontpage
+- Improved layout for submit buttons
+
 ### 2.1.15 - 19/09/2016
 **Changes:** 
 - NEW option for title in the Banners section
