@@ -912,7 +912,7 @@ function shop_isle_customize_register( $wp_customize ) {
 		'shop_isle_font_size',
 		array(
 			'type' 		=> 'select',
-			'label' 	=> 'Select font size:',
+			'label' 	=> __('Select font size:','shop-isle'),
 			'section' 	=> 'shop_isle_general_section',
 			'choices' 	=> array(
 				'12px' => '12px',
