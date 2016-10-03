@@ -371,132 +371,158 @@ function shop_isle_products_slider_on_single_page() {
 				if( !empty($shop_isle_products_slider_category) && ($shop_isle_products_slider_category != '-') ):
 
 					$shop_isle_products_slider_args = array( 'post_type' => 'product', 'posts_per_page' => 10, 'tax_query' => array(
-						array(
+							array(
 							'taxonomy' => 'product_cat',
 							'field'    => 'term_id',
 							'terms'    => $shop_isle_products_slider_category,
-						)
-					));
+						)),
+						'meta_query' => array(
+                            array(
+                                'key' => '_visibility',
+                                'value' => 'hidden',
+                                'compare' => '!=',
+                            )),
+					);
 
 					$shop_isle_products_slider_loop = new WP_Query( $shop_isle_products_slider_args );
 
 					if( $shop_isle_products_slider_loop->have_posts() ):
 
-							echo '<div class="row">';
+    echo '<div class="row">';
 
-								echo '<div class="owl-carousel text-center" data-items="5" data-pagination="false" data-navigation="false">';
+        echo '<div class="owl-carousel text-center" data-items="5" data-pagination="false" data-navigation="false">';
 
-									while ( $shop_isle_products_slider_loop->have_posts() ) :
+            while ( $shop_isle_products_slider_loop->have_posts() ) :
 
-										$shop_isle_products_slider_loop->the_post();
+                $shop_isle_products_slider_loop->the_post();
 
-										echo '<div class="owl-item">';
-											echo '<div class="col-sm-12">';
-												echo '<div class="ex-product">';
-													echo '<a href="'.esc_url( get_permalink() ).'">' . woocommerce_get_product_thumbnail().'</a>';
-													echo '<h4 class="shop-item-title font-alt"><a href="'.esc_url( get_permalink() ).'">'.get_the_title().'</a></h4>';
-														$product = new WC_Product( get_the_ID() );
-														$rating_html = $product->get_rating_html( $product->get_average_rating() );
-														if ( $rating_html && get_option( 'woocommerce_enable_review_rating' ) === 'yes' ) {
-															echo '<div class="product-rating-home">' . $rating_html . '</div>';
-														}
-														if(!empty($product)):
-															if( function_exists('get_woocommerce_price_format') ):
-																$format_string = get_woocommerce_price_format();
-															endif;	
-															if( !empty($format_string) ):
-																switch ( $format_string ) {
-																	case '%1$s%2$s' :
-																		echo get_woocommerce_currency_symbol().$product->price;
-																	break;
-																	case '%2$s%1$s' :
-																		echo $product->price.get_woocommerce_currency_symbol();
-																	break;
-																	case '%1$s&nbsp;%2$s' :
-																		echo get_woocommerce_currency_symbol().' '.$product->price;
-																	break;
-																	case '%2$s&nbsp;%1$s' :
-																		echo $product->price.' '.get_woocommerce_currency_symbol();
-																	break;
-																}
-															else:
-																echo get_woocommerce_currency_symbol().$product->price;
-															endif;
-														endif;
-													
-												echo '</div>';
-											echo '</div>';
-										echo '</div>';
+                echo '<div class="owl-item">';
+                    echo '<div class="col-sm-12">';
+                        echo '<div class="ex-product">';
+                            echo '<a href="'.esc_url( get_permalink() ).'">' . woocommerce_get_product_thumbnail().'</a>';
+                            echo '<h4 class="shop-item-title font-alt"><a href="'.esc_url( get_permalink() ).'">'.get_the_title().'</a></h4>';
+                                $product = new WC_Product( get_the_ID() );
 
-									endwhile;
+                                $rating_html = '';
+                                if( function_exists( 'method_exists' ) && method_exists( $product, 'get_rating_html' ) && method_exists( $product, 'get_average_rating' ) ) {
+                                    $shop_isle_avg = $product->get_average_rating();
+                                    if( !empty($shop_isle_avg) ) {
+                                        $rating_html = $product->get_rating_html( $shop_isle_avg );
+                                    }
+                                }
+                                if ( !empty($rating_html) && get_option( 'woocommerce_enable_review_rating' ) === 'yes' ) {
+                                    echo '<div class="product-rating-home">' . $rating_html . '</div>';
+                                }
+                                if(!empty($product)):
+                                    if( function_exists('get_woocommerce_price_format') ):
+                                        $format_string = get_woocommerce_price_format();
+                                    endif;
+                                    if( !empty($format_string) ):
+                                        switch ( $format_string ) {
+                                            case '%1$s%2$s' :
+                                                echo get_woocommerce_currency_symbol().$product->price;
+                                            break;
+                                            case '%2$s%1$s' :
+                                                echo $product->price.get_woocommerce_currency_symbol();
+                                            break;
+                                            case '%1$s&nbsp;%2$s' :
+                                                echo get_woocommerce_currency_symbol().' '.$product->price;
+                                            break;
+                                            case '%2$s&nbsp;%1$s' :
+                                                echo $product->price.' '.get_woocommerce_currency_symbol();
+                                            break;
+                                        }
+                                    else:
+                                        echo get_woocommerce_currency_symbol().$product->price;
+                                    endif;
+                                endif;
 
-									wp_reset_postdata();
-								echo '</div>';
+                        echo '</div>';
+                    echo '</div>';
+                echo '</div>';
 
-							echo '</div>';
+            endwhile;
+
+            wp_reset_postdata();
+        echo '</div>';
+
+    echo '</div>';
 
 					endif;
 
 				else:
 
-					$shop_isle_products_slider_args = array( 'post_type' => 'product', 'posts_per_page' => 10);
+					$shop_isle_products_slider_args = array( 'post_type' => 'product', 'posts_per_page' => 10,
+                        'meta_query' => array(
+                            array(
+                                'key' => '_visibility',
+                                'value' => 'hidden',
+                                'compare' => '!=',
+                            ))
+                        );
 
 					$shop_isle_products_slider_loop = new WP_Query( $shop_isle_products_slider_args );
 
-					if( $shop_isle_products_slider_loop->have_posts() ):
+                    if( $shop_isle_products_slider_loop->have_posts() ):
 
-							echo '<div class="row">';
+                                echo '<div class="row">';
 
-								echo '<div class="owl-carousel text-center" data-items="5" data-pagination="false" data-navigation="false">';
+                                    echo '<div class="owl-carousel text-center" data-items="5" data-pagination="false" data-navigation="false">';
 
-									while ( $shop_isle_products_slider_loop->have_posts() ) :
+                                        while ( $shop_isle_products_slider_loop->have_posts() ) :
 
-										$shop_isle_products_slider_loop->the_post();
+                                            $shop_isle_products_slider_loop->the_post();
 
-										echo '<div class="owl-item">';
-											echo '<div class="col-sm-12">';
-												echo '<div class="ex-product">';
-													echo '<a href="'.esc_url( get_permalink() ).'">' . woocommerce_get_product_thumbnail().'</a>';
-													echo '<h4 class="shop-item-title font-alt"><a href="'.esc_url( get_permalink() ).'">'.get_the_title().'</a></h4>';
-														$product = new WC_Product( get_the_ID() );
-														$rating_html = $product->get_rating_html( $product->get_average_rating() );
-														if ( $rating_html && get_option( 'woocommerce_enable_review_rating' ) === 'yes' ) {
-															echo '<div class="product-rating-home">' . $rating_html . '</div>';
-														}
-														if(!empty($product)):
-															if( function_exists('get_woocommerce_price_format') ):
-																$format_string = get_woocommerce_price_format();
-															endif;	
-															if( !empty($format_string) ):
-																switch ( $format_string ) {
-																	case '%1$s%2$s' :
-																		echo get_woocommerce_currency_symbol().$product->price;
-																	break;
-																	case '%2$s%1$s' :
-																		echo $product->price.get_woocommerce_currency_symbol();
-																	break;
-																	case '%1$s&nbsp;%2$s' :
-																		echo get_woocommerce_currency_symbol().' '.$product->price;
-																	break;
-																	case '%2$s&nbsp;%1$s' :
-																		echo $product->price.' '.get_woocommerce_currency_symbol();
-																	break;
-																}
-															else:
-																echo get_woocommerce_currency_symbol().$product->price;
-															endif;
-														endif;
-													
-												echo '</div>';
-											echo '</div>';
-										echo '</div>';
+                                            echo '<div class="owl-item">';
+                                                echo '<div class="col-sm-12">';
+                                                    echo '<div class="ex-product">';
+                                                        echo '<a href="'.esc_url( get_permalink() ).'">' . woocommerce_get_product_thumbnail().'</a>';
+                                                        echo '<h4 class="shop-item-title font-alt"><a href="'.esc_url( get_permalink() ).'">'.get_the_title().'</a></h4>';
+                                                            $product = new WC_Product( get_the_ID() );
+                                                            $rating_html = '';
+                                                            if( function_exists( 'method_exists' ) && method_exists( $product, 'get_rating_html' ) && method_exists( $product, 'get_average_rating' ) ) {
+                                                                $shop_isle_avg = $product->get_average_rating();
+                                                                if( !empty($shop_isle_avg) ) {
+                                                                    $rating_html = $product->get_rating_html( $shop_isle_avg );
+                                                                }
+                                                            }
+                                                            if ( !empty($rating_html) && get_option( 'woocommerce_enable_review_rating' ) === 'yes' ) {
+                                                                echo '<div class="product-rating-home">' . $rating_html . '</div>';
+                                                            }
+                                                            if(!empty($product)):
+                                                                if( function_exists('get_woocommerce_price_format') ):
+                                                                    $format_string = get_woocommerce_price_format();
+                                                                endif;
+                                                                if( !empty($format_string) ):
+                                                                    switch ( $format_string ) {
+                                                                        case '%1$s%2$s' :
+                                                                            echo get_woocommerce_currency_symbol().$product->price;
+                                                                        break;
+                                                                        case '%2$s%1$s' :
+                                                                            echo $product->price.get_woocommerce_currency_symbol();
+                                                                        break;
+                                                                        case '%1$s&nbsp;%2$s' :
+                                                                            echo get_woocommerce_currency_symbol().' '.$product->price;
+                                                                        break;
+                                                                        case '%2$s&nbsp;%1$s' :
+                                                                            echo $product->price.' '.get_woocommerce_currency_symbol();
+                                                                        break;
+                                                                    }
+                                                                else:
+                                                                    echo get_woocommerce_currency_symbol().$product->price;
+                                                                endif;
+                                                            endif;
 
-									endwhile;
+                                                    echo '</div>';
+                                                echo '</div>';
+                                            echo '</div>';
 
-									wp_reset_postdata();
-								echo '</div>';
+                                        endwhile;
 
-							echo '</div>';
+                                        wp_reset_postdata();
+                                    echo '</div>';
+
+                                echo '</div>';
 
 					endif;
 
