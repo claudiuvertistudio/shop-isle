@@ -1,4 +1,11 @@
 
+### 2.1.17 - 04/10/2016
+**Changes:** 
+- Added translation files for spanish es_MX
+- Fixed issue with hidden products appearing on single product page
+- Improved layout for the Select options button for variable products
+- Fixed issue with submit button text color in footer widgets
+
 ### 2.1.16 - 25/09/2016
 **Changes:** 
 - Fixed fatal error in lower version of PHP
