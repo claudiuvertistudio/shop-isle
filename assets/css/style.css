@@ -2479,7 +2479,8 @@ Footer
 }
 
 .shop_isle_footer_sidebar .widget input[type=search],
-.shop_isle_footer_sidebar .widget_search {
+.shop_isle_footer_sidebar .widget_search,
+.shop_isle_footer_sidebar .widget input:not([type=submit]){
 	color: #666;
 }
 
