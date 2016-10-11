@@ -110,6 +110,9 @@ if ( ! function_exists( 'shop_isle_setup' ) ) :
 		
 		/* tgm-plugin-activation */
 		require_once get_template_directory() . '/class-tgm-plugin-activation.php';
+
+		/* Customizer upsell. */
+		require_once( trailingslashit( get_template_directory() ) . 'inc/customize-pro/class-shopisle-customize-upsell.php' );
 	}
 endif; // shop_isle_setup
 
