@@ -120,3 +120,11 @@ button.shop_isle_general_control_remove_field:hover{
 	background-color: #f0ad4e;
 	padding: 10px;
 }
+
+.shopisle-theme-info {
+	text-align: center;
+}
+
+.shopisle-theme-info hr {
+	margin: 10px auto;
+}
