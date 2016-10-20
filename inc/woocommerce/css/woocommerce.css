@@ -2592,7 +2592,7 @@ Single product page
 ****/
 .woocommerce.single-product .price ins {
 	width: 	100%;
-    display: block;;
+    display: block;
 }
 .woocommerce.single-product .price ins .amount {
 	text-decoration: none;
