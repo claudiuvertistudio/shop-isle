@@ -1,4 +1,11 @@
 
+### 2.1.18 - 20/10/2016
+**Changes:** 
+- Improved Customizer layout
+- Improved main slider arrows layout
+- NEW option to allow a shortcode instead of the main slider
+- Improved product page for variable products
+
 ### 2.1.17 - 04/10/2016
 **Changes:** 
 - Added translation files for spanish es_MX
