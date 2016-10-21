@@ -4127,6 +4127,16 @@ ALIGNMENTS
 }
 
 /* -------------------------------------------------------------------
+SiteOrigin Page Builder styles
+------------------------------------------------------------------- */
+.siteorigin-panels.page-template-template-fullwidth-no-title .main > .module {
+    padding: 50px 0 0;
+}
+.siteorigin-panels .widget li:before {
+    display: none;
+}
+
+/* -------------------------------------------------------------------
 Responsive Media Querries
 ------------------------------------------------------------------- */
 
