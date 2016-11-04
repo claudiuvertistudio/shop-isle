@@ -2148,6 +2148,18 @@ Home Section
 
 .content-box-image {
 	margin-bottom: 40px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.content-box-image:hover {
+	opacity: 0.8;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
 }
 
 .module-small.home-banners {
@@ -4120,6 +4132,16 @@ ALIGNMENTS
 	font-size: 9px;
 	margin-bottom: 0;
 	letter-spacing: 1px;
+}
+
+/* -------------------------------------------------------------------
+SiteOrigin Page Builder styles
+------------------------------------------------------------------- */
+.siteorigin-panels.page-template-template-fullwidth-no-title .main > .module {
+    padding: 50px 0 0;
+}
+.siteorigin-panels.page-template-template-fullwidth-no-title .widget li:before {
+    display: none;
 }
 
 /* -------------------------------------------------------------------
