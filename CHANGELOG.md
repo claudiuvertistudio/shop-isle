@@ -1,4 +1,10 @@
 
+### 2.2.0 - 09/11/2016
+**Changes:** 
+- Added mo and po files for spanish language
+- Fixed issues with 404 error page
+- Use HTTPS protocol for video youtube thumbnail
+
 ### 2.1.19 - 04/11/2016
 **Changes:** 
 - Added Siteorigin compatibility + new template page for Siteorigin
