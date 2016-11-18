@@ -336,14 +336,19 @@
 		/* ---------------------------------------------- /*
 		 * Scroll top
 		/* ---------------------------------------------- */
-
-		$(window).scroll(function() {
-			if ($(this).scrollTop() > 100) {
-				$('.scroll-up').fadeIn();
-			} else {
-				$('.scroll-up').fadeOut();
-			}
-		});
+        var scrollFadeTimeout = null;
+        $(window).scroll(function() {
+            if( null !== scrollFadeTimeout ){
+                clearTimeout(scrollFadeTimeout);
+            }
+            scrollFadeTimeout = setTimeout(function(){
+                if ($(this).scrollTop() > 100) {
+                    $('.scroll-up').fadeIn();
+                } else {
+                    $('.scroll-up').fadeOut();
+                }
+            },200);
+        });
 
 		$('a[href="#totop"]').click(function() {
 			$('html, body').animate({ scrollTop: 0 }, 'slow');
